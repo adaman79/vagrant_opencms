@@ -1,4 +1,5 @@
 1. git clone https://github.com/adaman79/vagrant_opencms.git
-2. mkdir files
-3. wget wget http://www.opencms.org/downloads/opencms/opencms-9.0.1.zip
-4. vagrant up opencms
+2. vagrant up opencms
+3. sudo service mysql restart
+4. Open your web browser and go to http://THE_BRIDGED_IP_OF_THE_VAGRANT_BOX:8080/opencms/setup/
+5. Run setup {Setup Connection: user => root with pwd => toor and OpenCms Connection with user => opencms and pwd => opencms} have fun.

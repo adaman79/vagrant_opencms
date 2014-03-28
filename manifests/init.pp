@@ -15,12 +15,22 @@ node "opencms.cc.de" {
 	exec { "apt-update":
 		command	=> "/usr/bin/apt-get update",
 	}
+
+	exec { "wget opencms":
+		command => "wget http://www.opencms.org/downloads/opencms/opencms-9.0.1.zip",
+		cwd	=> "/vagrant/files/",
+		timeout => 0,
+		path	=> "/usr/bin",
+	}
+
 	file { "/var/lib/tomcat6/webapps/opencms-9.0.1.zip":
 		ensure	=> present,
 		source	=> "/vagrant/files/opencms-9.0.1.zip",
 		owner	=> root,
 		mode	=> 777,
+		require => Exec['wget opencms'],
 	}
+
 	exec { "unzip-opencms":
 		command => "unzip -o /var/lib/tomcat6/webapps/opencms-9.0.1.zip -d /var/lib/tomcat6/webapps",
 		path	=> "/usr/bin",
