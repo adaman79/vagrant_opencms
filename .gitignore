@@ -2,4 +2,4 @@
 # Vagrant stuff
 .git/
 .vagrant/
-files/opencms*
+files/opencms-9.0.1.zip
